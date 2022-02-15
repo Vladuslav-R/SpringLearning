@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:property-placeholder location="classpath:musicPlayer.properties"/>
+<bean id="music"
+      class="by.radkevich.spring.lesson1_6.RockMusic">
+</bean>
+
+    <bean id="music1"
+          class="by.radkevich.spring.lesson1_6.ClassicalMusic">
+    </bean>
+    <bean id="music2"
+          class="by.radkevich.spring.lesson1_6.PopMusic">
+    </bean>
+
+
+    <bean id="musicPlayer"
+          class="by.radkevich.spring.lesson1_6.MusicPlayer">
+        <property name="playList">
+            <list>
+                <ref bean="music"/>
+                <ref bean="music1"/>
+                <ref bean="music2"/>
+            </list>
+        </property>
+        <property name="name" value="${musicPlayer.name}"/>
+        <property name="volume" value="${musicPlayer.volume}"/>
+
+    </bean>
+    <bean id="test"
+          class="by.radkevich.spring.lesson1_6.TestSpring">
+        <property name="name" value="${testSpring.name}"/>
+        <property name="volume" value="${testSpring.volume}"/>
+    </bean>
+
+
+
+
+
+
+
+
+
+
+</beans>
