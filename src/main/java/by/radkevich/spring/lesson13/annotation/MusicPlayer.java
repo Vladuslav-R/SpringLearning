@@ -17,11 +17,11 @@ public class MusicPlayer {
 private int volume;
 List<MusicStyle> playList = new ArrayList<>();
 
-    {
-        playList.add(MusicStyle.POP);
-        playList.add(MusicStyle.ROCK);
-        playList.add(MusicStyle.CLASSICAL);
-    }
+//    {
+//        playList.add(MusicStyle.POP);
+//        playList.add(MusicStyle.ROCK);
+//        playList.add(MusicStyle.CLASSICAL);
+//    }
 
     public String getName() {
         return name;
@@ -46,7 +46,7 @@ List<MusicStyle> playList = new ArrayList<>();
     int rand = random.nextInt(3);
 
 
-@Autowired
+
     public MusicPlayer(@Qualifier("rockMusic") Music music, @Qualifier("popMusic") Music music1) {
         this.music = music;
         this.music1 = music1;
@@ -55,15 +55,6 @@ List<MusicStyle> playList = new ArrayList<>();
 
     public void playSong(MusicStyle musicStyle) {
 
-        switch (musicStyle) {
-            case POP:
-                System.out.println(music1.getSong(rand));
-                break;
-            case ROCK:
-                System.out.println(music.getSong(rand));
-                break;
-            default:
-                System.out.println("Пшел вон");
 
 
         }
